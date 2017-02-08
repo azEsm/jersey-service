@@ -28,8 +28,7 @@ public class DataService {
             }
         });
 
-        pool.schedule(() -> promise.completeExceptionally(
-                new TimeoutException()),
+        pool.schedule(() -> promise.completeExceptionally(new TimeoutException()),
                 1,
                 TimeUnit.SECONDS
         );
