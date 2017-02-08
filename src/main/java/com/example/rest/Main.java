@@ -1,6 +1,6 @@
 package com.example.rest;
 
-import com.example.rest.exceptions.CustomCompleteExceptionManager;
+import com.example.rest.exceptions.CompleteExceptionManager;
 import com.example.rest.resources.ArticleResource;
 import com.example.rest.services.DataService;
 import org.glassfish.grizzly.http.server.HttpServer;
@@ -29,7 +29,7 @@ public class Main {
         final ResourceConfig rc = new ResourceConfig().packages(
                 ArticleResource.class.getPackage().getName(),
                 DataService.class.getPackage().getName(),
-                CustomCompleteExceptionManager.class.getPackage().getName()
+                CompleteExceptionManager.class.getPackage().getName()
         );
 
         // create and start a new instance of grizzly http server

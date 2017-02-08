@@ -7,7 +7,7 @@ import java.nio.file.Paths;
 import java.util.concurrent.CompletionException;
 
 @Provider
-public class CustomCompleteExceptionManager implements ExceptionMapper<CompletionException> {
+public class CompleteExceptionManager implements ExceptionMapper<CompletionException> {
 
     @Override
     public Response toResponse(CompletionException e) {

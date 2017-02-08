@@ -19,6 +19,7 @@ public class DataService {
 
     private CompletableFuture<String> find(String path) {
         CompletableFuture<String> promise = new CompletableFuture<>();
+
         CompletableFuture.runAsync(() -> {
             try {
                 promise.complete(new String(Files.readAllBytes(Paths.get("data", path))));
@@ -26,6 +27,7 @@ public class DataService {
                 promise.completeExceptionally(e);
             }
         });
+
         pool.schedule(() -> promise.completeExceptionally(
                 new TimeoutException()),
                 1,
