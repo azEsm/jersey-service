@@ -1,5 +1,6 @@
 package com.example.rest.resources;
 
+import com.example.rest.services.CombineArticleData;
 import com.example.rest.services.DataService;
 
 import javax.inject.Inject;
@@ -30,7 +31,7 @@ public class ArticleResource {
     public void asyncGet(@Suspended final AsyncResponse asyncResponse) {
         dataService
                 .findTopic()
-                .thenCombine(dataService.findText(), (a, b) -> a + "***\n" + b)
+                .thenCombine(dataService.findText(), new CombineArticleData())
                 .thenApply(asyncResponse::resume)
                 .exceptionally(asyncResponse::resume);
 
